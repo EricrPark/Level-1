@@ -4,6 +4,7 @@ import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
@@ -24,8 +25,11 @@ public class BookOfIllusions extends MouseAdapter {
 	}
 
 	// 1. Make a JFrame variable and initialize it using "new JFrame()"
+	JFrame frame = new JFrame();
 
 	private void createBook() {
+		frame.setVisible(true);
+		frame.setSize(2000, 1000);
 		// 2. make the frame visible
 		// 3. set the size of the frame
 		// 4. find 2 images and save them to your project’s default package
