@@ -35,7 +35,7 @@ public class CowTimer {
 				Thread.sleep(1000);
 				System.out.println(countdown + " seconds left");
 				playSound("drum.wav");
-				speak("it's time to walk");
+				speak("It's time to walk");
 		} 
 		else {
 			System.out.println(countdown + " seconds left");
