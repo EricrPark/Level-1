@@ -27,21 +27,24 @@ public class CowTimer {
 		 * 2. Count down the minutes, print the current minute then sleep for 60
 		 * seconds using Thread.sleep(int milliseconds).
 		 */
-		int countdown = 5;
-		while(countdown != 0) {
-			if (countdown == 1) {
+		for (int i = 0; i < 100000000; i++) {
+			int countdown = 15;
+			while(countdown != 0) {
+				if (countdown == 1) {
+					System.out.println(countdown + " seconds left");
+					countdown--;
+					Thread.sleep(1000);
+					System.out.println(countdown + " seconds left");
+					playSound("drum.wav");
+					speak("It's time to walk");
+			} 
+			else {
 				System.out.println(countdown + " seconds left");
 				countdown--;
 				Thread.sleep(1000);
-				System.out.println(countdown + " seconds left");
-				playSound("drum.wav");
-				speak("It's time to walk");
-		} 
-		else {
-			System.out.println(countdown + " seconds left");
-			countdown--;
-			Thread.sleep(1000);
+			}
 		}
+		
 		}
 
 		/*
