@@ -1,9 +1,10 @@
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
@@ -16,13 +17,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
 /* 1. Download the JavaZoom jar from here: http://bit.ly/javazoom
  * 2. Right click your project and add it as an External JAR (Under Java Build Path > Libraries).*/
 
-public class Jukebox implements Runnable, ActionListener {
+public class Jukebox extends MouseAdapter implements Runnable, ActionListener {
 
 	Song song1 = new Song("I_Feel_No_remorse.mp3");
 	Song song2 = new Song("The Campfire Song Song.mp3");
@@ -60,8 +60,10 @@ public class Jukebox implements Runnable, ActionListener {
 		panel.add(button2);
 		panel.add(text);
 		text.setEditable(false);
-		button.addActionListener(this);
-		button2.addActionListener(this);
+		//button.addActionListener(this);
+		//button2.addActionListener(this);
+		button.addMouseListener(this);
+		button2.addMouseListener(this);
 		frame.pack();
 	}
 
@@ -88,6 +90,31 @@ public class Jukebox implements Runnable, ActionListener {
 		}
 	}
 
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("clicked");
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("pressed");
+		System.out.println("entered");
+		if(current != null) {
+			current.stop();
+		}
+		
+		if (e.getSource() == button) {
+			current = song2;
+			current.play();
+		}
+		else if (e.getSource() == button2) {
+			current = song1;
+			current.play();
+		}
+	}
+	
 }
 
 class Song {
