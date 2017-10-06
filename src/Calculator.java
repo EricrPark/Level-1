@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -41,6 +42,10 @@ public class Calculator implements ActionListener {
 		addition.addActionListener(this);
 		multiplacation.addActionListener(this);
 		division.addActionListener(this);
+		modulo.addActionListener(this);
+		panel1.setBackground(Color.black);
+		panel2.setBackground(Color.black);
+		panel3.setBackground(Color.black);
 	}
 	public static void main(String[] args) {
 		Calculator calc = new Calculator();
